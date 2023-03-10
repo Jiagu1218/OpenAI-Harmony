@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "OpenAI-Harmony",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}
