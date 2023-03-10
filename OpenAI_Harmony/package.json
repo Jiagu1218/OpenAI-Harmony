@@ -1,6 +1,10 @@
 {
   "name": "@ohos/openai-harmony",
   "description": "a npm package which contains arkUI2.0 page",
+  "author": {
+    "name": "xjg",
+    "email": "1285999424@qq.com"
+  },
   "ohos": {
     "org": ""
   },

@@ -10,8 +10,9 @@
   "repository": {},
   "license": "ISC",
   "dependencies": {
-    "@ohos/hypium": "1.0.5",
     "@ohos/hvigor": "1.4.0",
-    "@ohos/hvigor-ohos-plugin": "1.4.0"
+    "@ohos/hvigor-ohos-plugin": "1.4.0",
+    "@ohos/hypium": "1.0.5",
+    "@ohos/openai-harmony": "file:ohos-openai-harmony-1.0.0.tgz"
   }
 }
