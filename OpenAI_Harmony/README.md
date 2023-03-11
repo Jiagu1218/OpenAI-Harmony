@@ -17,6 +17,7 @@
 [引用HarmonyOS npm包文件和资源](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/creating_har_api8-0000001341502357-V3?catalogVersion=V3#section89674298391)
 
 ##### 使用说明
+需要权限：ohos.permission.INTERNET
 ```typescript
 //引用
 import {OpenAIApi} from '@ohos/openai-harmony';

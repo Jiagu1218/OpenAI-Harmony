@@ -1,10 +1,6 @@
-export declare enum Role {
-  system='system',
-  assistant='assistant',
-  user='user'
-}
-export interface ChatMessage{
-  id:number
-  role:Role|string
+import { ChatCompletionRequestMessage,ChatCompletionRequestMessageRoleEnum } from '@ohos/openai-harmony'
+
+export class ChatMessage implements ChatCompletionRequestMessage{
+  role:ChatCompletionRequestMessageRoleEnum
   content:string
 }

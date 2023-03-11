@@ -13,21 +13,7 @@ struct Index {
 
   aboutToAppear(){
     //初始化
-    this.openai = OpenAIApi.getInstance({apiKey:'openai key'})
-  }
-
-  createChatCompletion(){
-    //创建对话
-    this.openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{role: "user", content: "Hello world"}],
-    }).then((result) =>{
-      //处理返回结果
-      console.info('openai',JSON.stringify(result))
-    }).catch(error=>{
-      //处理异常
-      console.error('openai',JSON.stringify(error))
-    })
+    this.openai = OpenAIApi.getInstance({apiKey:'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'})
   }
   
   build() {
