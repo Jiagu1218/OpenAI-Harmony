@@ -1,3 +1,4 @@
+import CreateImageView from '../views/CreateImageView';
 import ChatView from '../views/ChatView';
 import QuestionLabelComp from '../Components/QuestionLabelComp'
 import AnswerLabelComp from '../Components/AnswerLabelComp'
@@ -13,7 +14,7 @@ struct Index {
 
   aboutToAppear(){
     //初始化
-    this.openai = OpenAIApi.getInstance({apiKey:'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'})
+    this.openai = OpenAIApi.getInstance({apiKey:''})
   }
   
   build() {
@@ -24,17 +25,7 @@ struct Index {
               ChatView()
           }
           TabContent() {
-            Grid() {
-              GridItem() {
-                Image("")
-                  .width("200vp")
-                  .height("200vp")
-              }              
-              .width("50vp")
-              .height("50vp")
-            }            
-            .width("100%")
-            .height("100vp")
+            CreateImageView()
           }
         }        
         .width("100%")

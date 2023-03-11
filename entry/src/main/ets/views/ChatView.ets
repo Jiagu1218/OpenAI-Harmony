@@ -13,28 +13,40 @@ export default struct ChatView {
   scrollerTo(index:number){
     this.scroller.scrollToIndex(index)
   }
+  scrollerToEnd(){
+//    let strJson = getInspectorByKey('chatList');
+//    let obj = JSON.parse(strJson);
+//    console.info("[getInspectorByKey] current component obj is: " + JSON.stringify(obj));
+//    let rectInfo = JSON.parse('[' + obj.$rect + ']')
+//    console.info("[getInspectorByKey] rectInfo is: " + rectInfo);
+    this.scroller.scrollEdge(Edge.End)
+  }
   build() {
     Stack(){
-      List({scroller:this.scroller}) {
-        LazyForEach(this.model.getMessageList(),(item:ChatMessage)=>{
-          if(item.role == 'user'){
-            ListItem() {
-              QuestionLabelComp({msg:item.content})
+      Column(){
+        List({scroller:this.scroller}) {
+          LazyForEach(this.model.getMessageList(),(item:ChatMessage)=>{
+            if(item.role == 'user'){
+              ListItem() {
+                QuestionLabelComp({msg:item.content})
+              }
+              .width("100%")
             }
-            .width("100%")
-            .height("80vp")
-          }
-          if (item.role == 'assistant') {
-            ListItem() {
-              AnswerLabelComp({msg:item.content})
+            if (item.role == 'assistant') {
+              ListItem() {
+                AnswerLabelComp({msg:item.content})
+              }
+              .width("100%")
             }
-            .width("100%")
-            .height("80vp")
-          }
-        },item => item.content)
-      }
-      .width("100%")
-      .margin({bottom:this.textAreaHeight})
+          },item => item.content)
+        }.height("100%")
+        .width("100%")
+        .cachedCount(3)
+//        .padding({bottom:this.textAreaHeight})
+//        .id('chatList')
+      }.width("100%")
+      .height('100%')
+      .padding({bottom:this.textAreaHeight})
       Row() {
         Column() {
           TextArea({placeholder:'在此输入',text:this.message}).width('100%')
@@ -43,7 +55,12 @@ export default struct ChatView {
         Column() {
           Button('>',{type:ButtonType.Circle})
             .onClick(()=>{
-              this.model.createChatCompletion(this.message,this.scrollerTo.bind(this))
+              this.model.createChatCompletion(this.message).then(()=>{
+                this.scrollerToEnd()
+              }).catch((e)=>{
+                //todo:提示
+              })
+              this.scrollerToEnd()
               this.message = ''
             })
         }.width('20%')

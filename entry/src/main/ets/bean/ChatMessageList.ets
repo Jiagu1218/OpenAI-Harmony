@@ -5,6 +5,10 @@ import { BasicDataSource } from './BasicDataSource';
  * */
 export class ChatMessageList extends BasicDataSource{
   private list:Array<ChatMessage> = []
+//    [
+//    {role:'assistant',content:'aaaaa'},{role:'assistant',content:'aaaaa'},
+//    {role:'user',content:'aaaaa\\n aas asdasdas'}
+//  ]
 
   public totalCount(): number {
     return this.list.length
